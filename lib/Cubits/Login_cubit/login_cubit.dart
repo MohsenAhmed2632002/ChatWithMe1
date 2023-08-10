@@ -11,7 +11,7 @@ class LoginCubit extends Cubit<LoginState> {
       {required String email, required String password}) async {
     emit(LoginWeating());
     try {
-      UserCredential user =
+      
           await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: email,
         password: password,
@@ -19,9 +19,8 @@ class LoginCubit extends Cubit<LoginState> {
       emit(LoginSuccess());
       // return user;
       
-    } on Exception catch (e) {
-      print(e);
-      emit(LoginFailuer());
+    }on FirebaseException catch (e) {
+      emit(LoginFailuer(eM: "$e"));
     }
   }
   // Future<UserCredential?> loginUser(

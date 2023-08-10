@@ -1,4 +1,6 @@
-import 'package:chat3/Cubits/cubit/login_cubit.dart';
+import 'package:chat3/Cubits/Chat_cubit/cubit/chat_cubit.dart';
+import 'package:chat3/Cubits/Login_cubit/login_cubit.dart';
+import 'package:chat3/Cubits/Regster_cubit/regsiter_cubit.dart';
 import 'package:chat3/Provider/Light_provider.dart';
 import 'package:chat3/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -12,10 +14,18 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(BlocProvider(
-    create: (context) => LoginCubit(),
-    child: MainPro(),
-  ));
+  runApp(MultiBlocProvider(providers: [
+    BlocProvider(
+      create: (context) => LoginCubit(),
+    ),
+    BlocProvider(
+      create: (context) => RegsiterCubit(),
+
+    ),BlocProvider(
+      create: (context) => ChatCubit(),
+      
+    ),
+  ], child: MainPro()));
 }
 
 class MainPro extends StatelessWidget {

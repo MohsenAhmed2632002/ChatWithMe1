@@ -160,3 +160,42 @@ class ComponantChat2 extends StatelessWidget {
     );
   }
 }
+
+class Error extends StatelessWidget {
+   Error({
+    super.key,required var snapshot,
+  });
+var snapshot;
+  @override
+  Widget build(BuildContext context) {
+    
+    return Container(
+      child: Scaffold(
+        body: Center(
+          child: Text(
+            "the e :${snapshot.error}",
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class NoData extends StatelessWidget {
+  const NoData({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Scaffold(
+        body: Center(
+          child: Text(
+            "wait.....",
+          ),
+        ),
+      ),
+    );
+  }
+}

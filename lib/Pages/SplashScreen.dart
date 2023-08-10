@@ -1,5 +1,6 @@
 import 'package:chat3/Pages/Chatpage.dart';
 import 'package:chat3/Pages/Login_page.dart';
+import 'package:chat3/Pages/Regstier_page.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -39,8 +40,8 @@ class _SplashScreenState extends State<SplashScreen> {
         );
       }));
     } else {
-      Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => LoginPage()));
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (context) => RegisterPage()));
     }
   }
 
