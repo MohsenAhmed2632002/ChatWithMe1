@@ -12,7 +12,10 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(MainPro());
+  runApp(BlocProvider(
+    create: (context) => LoginCubit(),
+    child: MainPro(),
+  ));
 }
 
 class MainPro extends StatelessWidget {
@@ -29,10 +32,7 @@ class MainPro extends StatelessWidget {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: themeModel.currenttheme,
-            home: BlocProvider(
-              create: (context) => LoginCubit(),
-              child: SplashScreen(),
-            ),
+            home: SplashScreen(),
           );
         },
       ),

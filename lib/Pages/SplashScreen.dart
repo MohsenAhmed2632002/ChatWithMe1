@@ -1,5 +1,5 @@
 import 'package:chat3/Pages/Chatpage.dart';
-import 'package:chat3/Pages/Regstier_page.dart';
+import 'package:chat3/Pages/Login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -20,18 +20,17 @@ class _SplashScreenState extends State<SplashScreen> {
         ),
         () => checkemail());
   }
-    Future<Object?> getpref() async {
-      final SharedPreferences preferences =
-          await SharedPreferences.getInstance();
 
-      var prefEmail = preferences.get(
-        "email",
-      );
-      return prefEmail;
-    }
+  Future<Object?> getpref() async {
+    final SharedPreferences preferences = await SharedPreferences.getInstance();
+
+    var prefEmail = preferences.get(
+      "email",
+    );
+    return prefEmail;
+  }
 
   checkemail() async {
-
     Object? email = await getpref();
     if (email != null) {
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
@@ -40,9 +39,8 @@ class _SplashScreenState extends State<SplashScreen> {
         );
       }));
     } else {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-        return RegisterPage();
-      }));
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => LoginPage()));
     }
   }
 

@@ -21,13 +21,13 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<LoginCubit, LoginState>(
+    return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
         if (state is LoginWeating) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               elevation: 2,
-              backgroundColor: Color.fromARGB(255, 213, 255, 96),
+              backgroundColor: Color.fromARGB(255, 255, 251, 0),
               content: Text("Weating"),
             ),
           );
@@ -57,7 +57,8 @@ class LoginPage extends StatelessWidget {
           );
         }
       },
-      child: Scaffold(
+    builder:(context, state) {
+      return  Scaffold(
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Form(
@@ -66,7 +67,11 @@ class LoginPage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Image.asset("assets/mainicon.png"),
+                  Image.asset(
+                    "assets/mainicon.png",
+                    height: 150,
+                    width: 150,
+                  ),
                   SizedBox(
                     height: 30,
                   ),
@@ -140,7 +145,8 @@ class LoginPage extends StatelessWidget {
             ),
           ),
         ),
-      ),
+      );
+    }, 
     );
   }
 
