@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "625080112508",
+    "project_id": "wechat-b8eb3",
+    "storage_bucket": "wechat-b8eb3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:625080112508:android:a6e52fe2f1f511b58600f9",
+        "android_client_info": {
+          "package_name": "com.example.chat3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "625080112508-0lg7bmjnh26dc8f6ligj1a9drumvtdbt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnM2MOOM_7nUVEjUXwkY6z5xg4d8HkWTI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "625080112508-0lg7bmjnh26dc8f6ligj1a9drumvtdbt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:625080112508:android:604238fa931458f58600f9",
+        "android_client_info": {
+          "package_name": "com.example.chatwithme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "625080112508-0lg7bmjnh26dc8f6ligj1a9drumvtdbt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnM2MOOM_7nUVEjUXwkY6z5xg4d8HkWTI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "625080112508-0lg7bmjnh26dc8f6ligj1a9drumvtdbt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
