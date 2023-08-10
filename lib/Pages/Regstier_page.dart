@@ -62,25 +62,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
                 LoginButton(
                   onTap: () async {
-                    if (formKey.currentState!.validate()) {
-                      try {
-                        UserCredential user = await registerUser();
-
-                        snakBarwhensucc(context, user);
-                        savepref(email: email!);
-                        Future.delayed(
-                          Duration(seconds: 2),
-                          () => Navigator.pushReplacement(context,
-                              MaterialPageRoute(builder: (context) {
-                            return ChatPage(
-                              email: email!,
-                            );
-                          })),
-                        );
-                      } on FirebaseAuthException catch (e) {
-                        returnEx(e, context);
-                      }
-                    }
+                    await AllRegisterUser(context);
                   },
                 ),
                 SizedBox(
@@ -115,6 +97,28 @@ class _RegisterPageState extends State<RegisterPage> {
         ),
       ),
     );
+  }
+
+  Future<void> AllRegisterUser(BuildContext context) async {
+    if (formKey.currentState!.validate()) {
+      try {
+        UserCredential user = await registerUser();
+    
+        snakBarwhensucc(context, user);
+        savepref(email: email!);
+        Future.delayed(
+          Duration(seconds: 2),
+          () => Navigator.pushReplacement(context,
+              MaterialPageRoute(builder: (context) {
+            return ChatPage(
+              email: email!,
+            );
+          })),
+        );
+      } on FirebaseAuthException catch (e) {
+        returnEx(e, context);
+      }
+    }
   }
 
   savepref({required String email}) async {

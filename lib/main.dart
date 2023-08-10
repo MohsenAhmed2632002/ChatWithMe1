@@ -1,9 +1,10 @@
+import 'package:chat3/Cubits/cubit/login_cubit.dart';
 import 'package:chat3/Provider/Light_provider.dart';
 import 'package:chat3/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'Pages/SplashScreen.dart';
 
 void main() async {
@@ -28,7 +29,10 @@ class MainPro extends StatelessWidget {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: themeModel.currenttheme,
-            home: SplashScreen(),
+            home: BlocProvider(
+              create: (context) => LoginCubit(),
+              child: SplashScreen(),
+            ),
           );
         },
       ),

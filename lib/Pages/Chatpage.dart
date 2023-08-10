@@ -16,10 +16,7 @@ class ChatPage extends StatefulWidget {
 }
 
 class _ChatPageState extends State<ChatPage> {
-  @override
-  void initState() {
-    super.initState();
-  }
+  
 
   final controllerS = ScrollController();
   TextEditingController controller = TextEditingController();
@@ -118,27 +115,50 @@ class _ChatPageState extends State<ChatPage> {
                 ),
               );
             } else if (snapshot.connectionState == ConnectionState.waiting) {
-              return Container(
-                child: Scaffold(
-                  body: Center(
-                    child: Text(
-                      "wait.....",
-                    ),
-                  ),
-                ),
-              );
+              return NoData();
             } else {
-              return Container(
-                child: Scaffold(
-                  body: Center(
-                    child: Text(
-                      "the e :${snapshot.error}",
-                    ),
-                  ),
-                ),
-              );
+              return Error(snapshot:snapshot);
             }
           }),
+    );
+  }
+}
+
+class Error extends StatelessWidget {
+   Error({
+    super.key,required var snapshot,
+  });
+var snapshot;
+  @override
+  Widget build(BuildContext context) {
+    
+    return Container(
+      child: Scaffold(
+        body: Center(
+          child: Text(
+            "the e :${snapshot.error}",
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class NoData extends StatelessWidget {
+  const NoData({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Scaffold(
+        body: Center(
+          child: Text(
+            "wait.....",
+          ),
+        ),
+      ),
     );
   }
 }
