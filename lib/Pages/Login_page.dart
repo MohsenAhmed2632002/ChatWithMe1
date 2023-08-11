@@ -1,3 +1,4 @@
+import 'package:chat3/Cubits/Chat_cubit/cubit/chat_cubit.dart';
 import 'package:chat3/Pages/Chatpage.dart';
 import 'package:chat3/Pages/Regstier_page.dart';
 import 'package:chat3/Widgets/Widgets.dart';
@@ -40,6 +41,7 @@ class LoginPage extends StatelessWidget {
               content: Text("You are logged in"),
             ),
           );
+          BlocProvider.of<ChatCubit>(context).getMessage();
           Future.delayed(
             Duration(seconds: 2),
             () => Navigator.pushReplacement(context,

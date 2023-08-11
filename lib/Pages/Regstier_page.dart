@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../Cubits/Chat_cubit/cubit/chat_cubit.dart';
+
 class RegisterPage extends StatefulWidget {
   @override
   State<RegisterPage> createState() => _RegisterPageState();
@@ -38,6 +40,7 @@ class _RegisterPageState extends State<RegisterPage> {
               content: Text("You Registered You Will Go To Chat Page"),
             ),
           );
+          BlocProvider.of<ChatCubit>(context).getMessage();
           savepref(email: email!);
           Future.delayed(
             Duration(seconds: 2),
